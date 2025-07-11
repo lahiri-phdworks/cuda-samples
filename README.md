@@ -392,7 +392,7 @@ OpenGL ES is an embedded systems graphics library used for 2D and 3D rendering. 
 
 #### Freeglut
 
-Freeglut is an open-source software library that serves as a replacement for the original OpenGL Utility Toolkit (GLUT). Its primary purpose is to make it easier for developers to create and manage windows containing OpenGL contexts, as well as handle input from devices like the mouse, keyboard, and joystick, across a wide range of platforms. To set up Freeglut on a Windowson on ARM system, you need to build freeglut on your system, and copy the freeglut.lib into the folder `./Common/lib/x64` and copy the freeglut.dll file into the `./bin/win64/${BUILD_TYPE}` execution folder.
+Freeglut is an open-source software library that serves as a replacement for the original OpenGL Utility Toolkit (GLUT). Its primary purpose is to make it easier for developers to create and manage windows containing OpenGL contexts, as well as handle input from devices like the mouse, keyboard, and joystick, across a wide range of platforms. To set up Freeglut on a Windowson on ARM system, you need to download the source from [Freeglut website](https://freeglut.sourceforge.net/), build freeglut on your system, and copy the freeglut.lib into the folder `./Common/lib/x64` and copy the freeglut.dll file into the `./bin/win64/${BUILD_TYPE}` execution folder.
 
 #### Vulkan
 
@@ -400,7 +400,7 @@ Vulkan is a low-overhead, cross-platform 3D graphics and compute API. Vulkan tar
 
 #### GLEW
 
-GLEW (OpenGL Extension Wrangler Library) is a cross-platform, open-source C/C++ library designed to simplify the process of using modern OpenGL features and extensions. Its main function is to dynamically load OpenGL function pointers at runtime, allowing developers to access both core OpenGL functions and additional features provided by hardware vendors, known as extensions. To set up GLEW on a Windows on ARM system, you need to build GLEW on your system, and copy the glew32.lib into the folder `./Common/lib/x64` and the glew32.dll into the `./bin/win64/${BUILD_TYPE}` execution folder.
+GLEW (OpenGL Extension Wrangler Library) is a cross-platform, open-source C/C++ library designed to simplify the process of using modern OpenGL features and extensions. Its main function is to dynamically load OpenGL function pointers at runtime, allowing developers to access both core OpenGL functions and additional features provided by hardware vendors, known as extensions. To set up GLEW on a Windows on ARM system, you need to download the source from [GLEW website](https://glew.sourceforge.net/), build GLEW on your system, and copy the glew32.lib into the folder `./Common/lib/x64` and the glew32.dll into the `./bin/win64/${BUILD_TYPE}` execution folder.
 
 #### GLFW
 
