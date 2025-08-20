@@ -8,9 +8,37 @@
         ]
     },
     "ptxgen": {
-        "args": [
-            "test.ll",
-            "-arch=compute_75"
+        "runs": [
+            {
+                "args": [
+                    "test.ll"
+                ],
+                "description": "ptxgen test"
+            },
+            {
+                "args": [
+                    "../cuda-shared-memory/shared_memory.ll"
+                ],
+                "description": "cuda-shared-memory shared_memory test"
+            },
+            {
+                "args": [
+                    "../cuda-shared-memory/extern_shared_memory.ll"   
+                ],
+                "description": "cuda-shared-memory extern_shared_memory test"
+            },
+            {
+                "args": [
+                    "../syscalls/malloc-free.ll"
+                ],
+                "description": "syscalls malloc-free test"
+            },
+            {
+                "args": [
+                    "../syscalls/vprintf.ll"
+                ], 
+                "description": "syscalls vprintf test"
+            }
         ]
     },
     "volumeRender": {
