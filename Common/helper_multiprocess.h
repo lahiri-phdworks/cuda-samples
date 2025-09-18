@@ -52,12 +52,22 @@
 #include <memory.h>
 #include <sys/un.h>
 #endif
-#include <filesystem>
 #include <vector>
 
-inline std::string getSocketFolder() {
-    return std::filesystem::temp_directory_path().string();
-}
+// Simple filesystem compatibility for GCC 7.x
+#if defined(__GNUC__) && __GNUC__ < 8
+    #include <cstdlib>
+    #include <string>
+    inline std::string getSocketFolder() {
+        const char* tmpdir = std::getenv("TMPDIR");
+        return tmpdir ? std::string(tmpdir) : "/tmp";
+    }
+#else
+    #include <filesystem>
+    inline std::string getSocketFolder() {
+        return std::filesystem::temp_directory_path().string();
+    }
+#endif
 
 typedef struct sharedMemoryInfo_st {
     void *addr;
