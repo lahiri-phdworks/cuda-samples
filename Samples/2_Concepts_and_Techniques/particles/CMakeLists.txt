@@ -41,7 +41,7 @@ if(${OpenGL_FOUND})
 
 target_compile_options(particles PRIVATE
     $<$<COMPILE_LANGUAGE:CUDA>:--extended-lambda>
-    $<$<COMPILE_LANGUAGE:CUDA>:-Xcompiler="/Zc:preprocessor">
+    $<$<AND:$<COMPILE_LANGUAGE:CUDA>,$<BOOL:${MSVC}>>:-Xcompiler="/Zc:preprocessor">
 )
 
 target_compile_features(particles PRIVATE cxx_std_17 cuda_std_17)

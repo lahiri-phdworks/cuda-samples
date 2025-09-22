@@ -54,8 +54,8 @@
 #endif
 #include <vector>
 
-// Simple filesystem compatibility for GCC 7.x
-#if defined(__GNUC__) && __GNUC__ < 8
+// Simple filesystem compatibility for GCC 8.x
+#if defined(__GNUC__) && __GNUC__ < 9
     #include <cstdlib>
     #include <string>
     inline std::string getSocketFolder() {
