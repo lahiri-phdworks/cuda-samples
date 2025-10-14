@@ -19,6 +19,16 @@ endif()
 # Include directories and libraries
 include_directories(../../../Common)
 
+# Check for Debian13 or later
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    file(READ "/etc/os-release" OS_RELEASE_CONTENTS)
+    if(OS_RELEASE_CONTENTS MATCHES "ID=[^ ]*debian[^ ]*" AND
+       OS_RELEASE_CONTENTS MATCHES "VERSION_ID=\"(1[3-9]|[2-9][0-9])\"")
+        message(STATUS "Debian 13 or later detected")
+        set(DEBIAN TRUE)
+    endif()
+endif()
+
 if(WIN32)
     set(PC_GLUT_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../../../Common")
     set(PC_GLUT_LIBRARY_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../../../Common/lib/x64")
@@ -57,6 +67,15 @@ if(${OpenGL_FOUND})
             CUDA::curand
             CUDA::cudart
         )
+        # Need to add X11 and other libraries for Debian13 or later explicitly
+        if(DEBIAN)
+            target_link_libraries(randomFog
+                X11
+                Xi
+                Xxf86vm
+                Xext
+            )
+        endif()
 
         # Copy data files to the output directory
         add_custom_command(TARGET randomFog POST_BUILD
