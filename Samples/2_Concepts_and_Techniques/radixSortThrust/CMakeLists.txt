@@ -28,3 +28,7 @@ target_compile_options(radixSortThrust PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:--exte
 target_compile_features(radixSortThrust PRIVATE cxx_std_17 cuda_std_17)
 
 set_target_properties(radixSortThrust PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

@@ -36,3 +36,7 @@ target_include_directories(MonteCarloMultiGPU PRIVATE
 target_link_libraries(MonteCarloMultiGPU PRIVATE
     CUDA::curand
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

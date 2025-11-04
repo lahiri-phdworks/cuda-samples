@@ -44,3 +44,7 @@ add_custom_command(TARGET nvJPEG POST_BUILD
     ${CMAKE_CURRENT_SOURCE_DIR}/images
     ${CMAKE_CURRENT_BINARY_DIR}/images
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

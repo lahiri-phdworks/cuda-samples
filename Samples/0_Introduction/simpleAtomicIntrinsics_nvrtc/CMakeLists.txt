@@ -38,3 +38,7 @@ add_custom_command(TARGET simpleAtomicIntrinsics_nvrtc POST_BUILD
     ${CMAKE_CURRENT_SOURCE_DIR}/simpleAtomicIntrinsics_kernel.cuh
     ${CMAKE_CURRENT_BINARY_DIR}
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

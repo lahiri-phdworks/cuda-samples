@@ -37,3 +37,7 @@ target_link_libraries(batchCUBLAS PRIVATE
     CUDA::cublas
     CUDA::cudart
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

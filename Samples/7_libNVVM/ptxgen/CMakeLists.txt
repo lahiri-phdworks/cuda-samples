@@ -48,8 +48,15 @@ else (WIN32)
                         LINK_FLAGS    "-Wl,-rpath,${LIBNVVM_RPATH}")
 endif (WIN32)
 
-install(TARGETS ptxgen DESTINATION bin)
-install(FILES test.ll DESTINATION bin)
+# Install to CUDA_SAMPLES_INSTALL_DIR if defined (for unified installation),
+# otherwise install to bin (for standalone libNVVM build)
+if(DEFINED CUDA_SAMPLES_INSTALL_DIR)
+    install(TARGETS ptxgen DESTINATION ${CUDA_SAMPLES_INSTALL_DIR})
+    install(FILES test.ll DESTINATION ${CUDA_SAMPLES_INSTALL_DIR})
+else()
+    install(TARGETS ptxgen DESTINATION bin)
+    install(FILES test.ll DESTINATION bin)
+endif()
 
 add_custom_command(
     TARGET ptxgen

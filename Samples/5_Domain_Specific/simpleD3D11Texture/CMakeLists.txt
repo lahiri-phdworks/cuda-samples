@@ -55,3 +55,7 @@ if(WIN32)
 else()
     message(STATUS "Sample 'simpleD3D11Texture' is Windows-only - skipping")
 endif()
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

@@ -34,3 +34,7 @@ add_custom_command(TARGET stereoDisparity POST_BUILD
     ${CMAKE_CURRENT_SOURCE_DIR}/data
     ${CMAKE_CURRENT_BINARY_DIR}/data
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

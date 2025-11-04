@@ -65,3 +65,7 @@ add_custom_target(generate_fatbin_vectorAdd ALL DEPENDS ${CUDA_FATBIN_FILE})
 
 # Ensure matrixMulDrv depends on the fatbin
 add_dependencies(vectorAddDrv generate_fatbin_vectorAdd)
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

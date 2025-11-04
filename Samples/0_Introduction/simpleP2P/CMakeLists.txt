@@ -32,3 +32,7 @@ else()
 
     set_target_properties(simpleP2P PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 endif()
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

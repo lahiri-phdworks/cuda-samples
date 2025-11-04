@@ -37,3 +37,7 @@ add_custom_command(TARGET clock_nvrtc POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
     ${CMAKE_CURRENT_SOURCE_DIR}/clock_kernel.cu ${CMAKE_CURRENT_BINARY_DIR}
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

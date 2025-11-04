@@ -84,3 +84,7 @@ target_compile_features(marchingCubes PRIVATE cxx_std_17 cuda_std_17)
 else()
     message(STATUS "OpenGL not found - will not build sample 'marchingCubes'")
 endif()
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

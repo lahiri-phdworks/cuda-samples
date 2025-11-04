@@ -28,3 +28,7 @@ target_compile_options(streamOrderedAllocationP2P PRIVATE $<$<COMPILE_LANGUAGE:C
 target_compile_features(streamOrderedAllocationP2P PRIVATE cxx_std_17 cuda_std_17)
 
 set_target_properties(streamOrderedAllocationP2P PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

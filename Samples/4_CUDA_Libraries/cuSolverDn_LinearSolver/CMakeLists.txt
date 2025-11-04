@@ -50,3 +50,7 @@ add_custom_command(TARGET cuSolverDn_LinearSolver POST_BUILD
     ${CMAKE_CURRENT_SOURCE_DIR}/lap3D_7pt_n20.mtx
     ${CMAKE_CURRENT_BINARY_DIR}
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

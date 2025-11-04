@@ -41,3 +41,7 @@ target_link_libraries(conjugateGradientMultiBlockCG PRIVATE
     CUDA::cublas
     CUDA::cusparse
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

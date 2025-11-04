@@ -37,3 +37,7 @@ target_compile_options(cdpQuadtree PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:--extended
 target_compile_features(cdpQuadtree PRIVATE cxx_std_17 cuda_std_17)
 
 set_target_properties(cdpQuadtree PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

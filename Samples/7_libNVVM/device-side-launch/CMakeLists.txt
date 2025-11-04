@@ -41,8 +41,15 @@ else (WIN32)
   set_target_properties(dsl PROPERTIES LINK_FLAGS "-Wl,-rpath,${LIBNVVM_RPATH}")
 endif (WIN32)
 
-install(TARGETS dsl DESTINATION bin)
-install(FILES dsl-gpu64.ll DESTINATION bin)
+# Install to CUDA_SAMPLES_INSTALL_DIR if defined (for unified installation),
+# otherwise install to bin (for standalone libNVVM build)
+if(DEFINED CUDA_SAMPLES_INSTALL_DIR)
+    install(TARGETS dsl DESTINATION ${CUDA_SAMPLES_INSTALL_DIR})
+    install(FILES dsl-gpu64.ll DESTINATION ${CUDA_SAMPLES_INSTALL_DIR})
+else()
+    install(TARGETS dsl DESTINATION bin)
+    install(FILES dsl-gpu64.ll DESTINATION bin)
+endif()
 
 # 'dsl' will load dsl-gpu64.ll from the current working directory. That
 # .ll file should be present where tests are executed (the build directory).

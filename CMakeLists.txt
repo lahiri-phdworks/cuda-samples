@@ -22,10 +22,4 @@ endif()
 
 set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} --extended-lambda")
 
-# Include installation configuration
-include(cmake/InstallSamples.cmake)
-
 add_subdirectory(Samples)
-
-# Setup installation for all samples
-setup_samples_install()

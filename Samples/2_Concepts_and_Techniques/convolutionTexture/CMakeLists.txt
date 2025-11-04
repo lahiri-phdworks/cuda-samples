@@ -32,3 +32,7 @@ set_target_properties(convolutionTexture PROPERTIES CUDA_SEPARABLE_COMPILATION O
 target_include_directories(convolutionTexture PUBLIC
     ${CUDAToolkit_INCLUDE_DIRS}
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

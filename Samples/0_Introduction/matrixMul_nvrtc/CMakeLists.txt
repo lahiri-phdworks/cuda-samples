@@ -55,3 +55,7 @@ add_custom_command(TARGET matrixMul_nvrtc POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
     ${CUDA_INCLUDE_DIR}/cccl/cuda ${CMAKE_CURRENT_BINARY_DIR}/cuda
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

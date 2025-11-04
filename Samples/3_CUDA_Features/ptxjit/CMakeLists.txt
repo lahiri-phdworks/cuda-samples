@@ -62,3 +62,7 @@ add_custom_target(generate_ptxjit_ptx ALL DEPENDS ${CUDA_PTX_FILE})
 
 # Ensure ptxjit depends on the fatbin
 add_dependencies(ptxjit generate_ptxjit_ptx)
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

@@ -39,9 +39,15 @@ set_tests_properties(test-cuda-shared-memory-shared_memory
                      test-cuda-shared-memory-extern_shared_memory
                      PROPERTIES FIXTURES_REQUIRED PTXGENTEST)
 
-# Install the .ll files to the install/ folder
-install(FILES shared_memory.ll DESTINATION bin/cuda-shared-memory)
-install(FILES extern_shared_memory.ll DESTINATION bin/cuda-shared-memory)
+# Install to CUDA_SAMPLES_INSTALL_DIR if defined (for unified installation),
+# otherwise install to bin/cuda-shared-memory (for standalone libNVVM build)
+if(DEFINED CUDA_SAMPLES_INSTALL_DIR)
+    install(FILES shared_memory.ll DESTINATION ${CUDA_SAMPLES_INSTALL_DIR}/cuda-shared-memory)
+    install(FILES extern_shared_memory.ll DESTINATION ${CUDA_SAMPLES_INSTALL_DIR}/cuda-shared-memory)
+else()
+    install(FILES shared_memory.ll DESTINATION bin/cuda-shared-memory)
+    install(FILES extern_shared_memory.ll DESTINATION bin/cuda-shared-memory)
+endif()
 
 file(COPY shared_memory.ll DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
 file(COPY extern_shared_memory.ll DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")

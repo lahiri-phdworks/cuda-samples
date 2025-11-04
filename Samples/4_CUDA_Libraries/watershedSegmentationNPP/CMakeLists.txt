@@ -65,3 +65,7 @@ add_custom_command(TARGET watershedSegmentationNPP POST_BUILD
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../Common/data/Rocks_512x512_8u_Gray.raw
     $<TARGET_FILE_DIR:watershedSegmentationNPP>/
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

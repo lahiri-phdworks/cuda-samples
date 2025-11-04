@@ -80,7 +80,13 @@ add_library(mathfuncs64 STATIC math-funcs.cu)
 set_target_properties(mathfuncs64 PROPERTIES PREFIX "lib"
                       OUTPUT_NAME "mathfuncs64"
                       SUFFIX ".a" CUDA_SEPERABLE_COMPILATION ON)
-install(TARGETS cuda-c-linking mathfuncs64 DESTINATION bin)
+# Install to CUDA_SAMPLES_INSTALL_DIR if defined (for unified installation),
+# otherwise install to bin (for standalone libNVVM build)
+if(DEFINED CUDA_SAMPLES_INSTALL_DIR)
+    install(TARGETS cuda-c-linking mathfuncs64 DESTINATION ${CUDA_SAMPLES_INSTALL_DIR})
+else()
+    install(TARGETS cuda-c-linking mathfuncs64 DESTINATION bin)
+endif()
 
 if (WIN32)
   add_custom_command(

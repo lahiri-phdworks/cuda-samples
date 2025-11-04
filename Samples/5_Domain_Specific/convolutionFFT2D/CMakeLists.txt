@@ -36,3 +36,7 @@ target_include_directories(convolutionFFT2D PRIVATE
 target_link_libraries(convolutionFFT2D PUBLIC
     CUDA::cufft
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

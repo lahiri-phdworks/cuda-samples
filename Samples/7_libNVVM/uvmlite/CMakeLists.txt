@@ -44,8 +44,15 @@ else (WIN32)
                         LINK_FLAGS "-Wl,-rpath,${LIBNVVM_RPATH}")
 endif ()
 
-install(TARGETS uvmlite DESTINATION bin)
-install(FILES uvmlite64.ll DESTINATION bin)
+# Install to CUDA_SAMPLES_INSTALL_DIR if defined (for unified installation),
+# otherwise install to bin (for standalone libNVVM build)
+if(DEFINED CUDA_SAMPLES_INSTALL_DIR)
+    install(TARGETS uvmlite DESTINATION ${CUDA_SAMPLES_INSTALL_DIR})
+    install(FILES uvmlite64.ll DESTINATION ${CUDA_SAMPLES_INSTALL_DIR})
+else()
+    install(TARGETS uvmlite DESTINATION bin)
+    install(FILES uvmlite64.ll DESTINATION bin)
+endif()
 
 # 'uvmlite' will load uvmlite64.ll from the current working directory. That
 # .ll file should be present where tests are executed (the build directory).

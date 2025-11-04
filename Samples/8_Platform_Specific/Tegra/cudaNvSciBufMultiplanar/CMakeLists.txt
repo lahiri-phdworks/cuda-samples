@@ -58,3 +58,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 else()
     message(STATUS "Will not build sample cudaNvSciBufMultiplanar - requires Linux OS")
 endif()
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../../cmake/InstallSamples.cmake)
+setup_samples_install()

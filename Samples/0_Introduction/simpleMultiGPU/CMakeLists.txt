@@ -28,3 +28,7 @@ target_compile_options(simpleMultiGPU PRIVATE $<$<COMPILE_LANGUAGE:CUDA>:--exten
 target_compile_features(simpleMultiGPU PRIVATE cxx_std_17 cuda_std_17)
 
 set_target_properties(simpleMultiGPU PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

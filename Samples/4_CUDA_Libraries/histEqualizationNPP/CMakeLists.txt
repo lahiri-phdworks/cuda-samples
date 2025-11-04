@@ -66,3 +66,7 @@ if(${FreeImage_FOUND})
 else()
     message(STATUS "FreeImage not found - will not build sample 'histEqualizationNPP'")
 endif()
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

@@ -91,3 +91,7 @@ target_compile_features(fluidsGL PRIVATE cxx_std_17 cuda_std_17)
 else()
     message(STATUS "OpenGL not found - will not build sample 'fluidsGL'")
 endif()
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

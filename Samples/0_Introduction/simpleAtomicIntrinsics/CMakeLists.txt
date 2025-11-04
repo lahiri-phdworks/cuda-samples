@@ -29,3 +29,7 @@ target_compile_options(simpleAtomicIntrinsics PRIVATE $<$<COMPILE_LANGUAGE:CUDA>
 target_compile_features(simpleAtomicIntrinsics PRIVATE cxx_std_17 cuda_std_17)
 
 set_target_properties(simpleAtomicIntrinsics PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

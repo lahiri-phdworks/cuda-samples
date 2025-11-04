@@ -45,3 +45,7 @@ target_link_libraries(matrixMulDynlinkJIT PUBLIC
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
     target_link_libraries(matrixMulDynlinkJIT PUBLIC dl)
 endif()
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

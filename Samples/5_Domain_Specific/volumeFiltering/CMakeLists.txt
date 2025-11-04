@@ -89,3 +89,7 @@ if(${OpenGL_FOUND})
 else()
     message(STATUS "OpenGL not found - will not build sample 'volumeFiltering'")
 endif()
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

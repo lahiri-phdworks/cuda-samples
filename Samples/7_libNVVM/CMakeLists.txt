@@ -128,3 +128,8 @@ add_subdirectory(simple)
 add_subdirectory(syscalls)
 add_subdirectory(ptxgen)
 add_subdirectory(uvmlite)
+
+# Include InstallSamples to set CUDA_SAMPLES_INSTALL_DIR
+# libNVVM samples will use this variable for installation
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../cmake")
+include(InstallSamples)

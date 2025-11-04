@@ -49,3 +49,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 else()
     message(STATUS "Will not build sample EGLStream_CUDA_Interop - requires Linux OS")
 endif()
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

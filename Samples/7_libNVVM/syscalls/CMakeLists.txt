@@ -36,8 +36,15 @@ add_test(NAME test-syscalls-vprintf
 set_tests_properties(test-syscalls-vprintf test-syscalls-malloc-free
                      PROPERTIES FIXTURES_REQUIRED PTXGENTEST)
 
-install(FILES malloc-free.ll DESTINATION bin/syscalls)
-install(FILES vprintf.ll DESTINATION bin/syscalls)
+# Install to CUDA_SAMPLES_INSTALL_DIR if defined (for unified installation),
+# otherwise install to bin/syscalls (for standalone libNVVM build)
+if(DEFINED CUDA_SAMPLES_INSTALL_DIR)
+    install(FILES malloc-free.ll DESTINATION ${CUDA_SAMPLES_INSTALL_DIR}/syscalls)
+    install(FILES vprintf.ll DESTINATION ${CUDA_SAMPLES_INSTALL_DIR}/syscalls)
+else()
+    install(FILES malloc-free.ll DESTINATION bin/syscalls)
+    install(FILES vprintf.ll DESTINATION bin/syscalls)
+endif()
 
 file(COPY malloc-free.ll DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
 file(COPY vprintf.ll DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")

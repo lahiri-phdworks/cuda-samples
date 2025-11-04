@@ -48,3 +48,7 @@ target_link_libraries(jitLto PRIVATE
     CUDA::nvrtc
     ${NVJITLINK_LIB}
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

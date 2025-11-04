@@ -37,3 +37,7 @@ target_include_directories(MC_EstimatePiQ PUBLIC
 target_link_libraries(MC_EstimatePiQ PUBLIC
     CUDA::curand
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

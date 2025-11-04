@@ -68,3 +68,7 @@ add_custom_target(generate_fatbin_simpleDrv ALL DEPENDS ${CUDA_FATBIN_FILE})
 
 # Ensure simpleDrvRuntime depends on the fatbin
 add_dependencies(simpleDrvRuntime generate_fatbin_simpleDrv)
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

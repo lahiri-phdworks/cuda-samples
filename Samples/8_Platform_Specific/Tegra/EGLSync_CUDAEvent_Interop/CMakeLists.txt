@@ -64,3 +64,7 @@ else()
     message(STATUS "Will not build sample EGLSync_CUDAEvent_Interop
  - requires Linux OS")
 endif()
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../../cmake/InstallSamples.cmake)
+setup_samples_install()

@@ -49,3 +49,7 @@ target_compile_features(UnifiedMemoryStreams PRIVATE cxx_std_17 cuda_std_17)
 else()
     message(STATUS "OpenMP not found - will not build sample 'UnifiedMemoryStreams'")
 endif()
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

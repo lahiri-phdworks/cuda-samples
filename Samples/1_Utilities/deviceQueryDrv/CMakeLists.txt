@@ -35,3 +35,7 @@ target_include_directories(deviceQueryDrv PRIVATE
 target_link_libraries(deviceQueryDrv PUBLIC
     CUDA::cuda_driver
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

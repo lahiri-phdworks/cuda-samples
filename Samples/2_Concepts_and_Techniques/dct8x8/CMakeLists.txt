@@ -53,3 +53,7 @@ add_custom_command(TARGET dct8x8 POST_BUILD
     ${CMAKE_CURRENT_SOURCE_DIR}/data/teapot512.bmp
     ${CMAKE_CURRENT_BINARY_DIR}/
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

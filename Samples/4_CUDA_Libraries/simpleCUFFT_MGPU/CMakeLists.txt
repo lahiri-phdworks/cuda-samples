@@ -37,3 +37,7 @@ set_target_properties(simpleCUFFT_MGPU PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
 target_link_libraries(simpleCUFFT_MGPU PRIVATE
     CUDA::cufft
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()

@@ -36,3 +36,7 @@ target_include_directories(cudaCompressibleMemory PRIVATE
 target_link_libraries(cudaCompressibleMemory PRIVATE
     CUDA::cuda_driver
 )
+
+# Include installation configuration
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake/InstallSamples.cmake)
+setup_samples_install()
