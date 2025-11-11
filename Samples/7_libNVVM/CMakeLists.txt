@@ -91,13 +91,12 @@ endif()
 set(CMAKE_INSTALL_RPATH "${LIBNVVM_RPATH}")
 message(STATUS "Using rpath: ${CMAKE_INSTALL_RPATH}")
 
-# On Windows, locate the nvvm.dll so we can install it.
+# On Windows, locate the nvvm.dll so we can install it later.
 if (WIN32)
   find_file(NVVM_DLL nvvm64_40_0.dll PATHS "${LIBNVVM_HOME}/bin" "${LIBNVVM_HOME}/bin/x64/")
   if (NOT NVVM_DLL)
     message(FATAL_ERROR "Found nvvm .h/.lib, but not .dll")
   endif()
-  install(FILES ${NVVM_DLL} DESTINATION bin)
   file(COPY ${NVVM_DLL} DESTINATION "${CMAKE_BINARY_DIR}")
 endif (WIN32)
 
@@ -133,3 +132,13 @@ add_subdirectory(uvmlite)
 # libNVVM samples will use this variable for installation
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../cmake")
 include(InstallSamples)
+
+# Install nvvm DLL to CUDA_SAMPLES_INSTALL_DIR if defined (for unified installation),
+# otherwise install to bin (for standalone libNVVM build)
+if (WIN32 AND NVVM_DLL)
+  if(DEFINED CUDA_SAMPLES_INSTALL_DIR)
+    install(FILES ${NVVM_DLL} DESTINATION ${CUDA_SAMPLES_INSTALL_DIR})
+  else()
+    install(FILES ${NVVM_DLL} DESTINATION bin)
+  endif()
+endif()
